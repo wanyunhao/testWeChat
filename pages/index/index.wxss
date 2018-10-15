@@ -41,3 +41,23 @@
 .type_item_no_select {
   border-bottom: 4rpx solid #fff;
 }
+
+.coupons_scroll {
+  white-space: nowrap;
+  width: 100%;
+  height:180rpx;
+}
+.coupon_item {
+  height:160rpx;
+  width: 300rpx;
+  background-color: #F1A83B;
+  margin-left:10rpx;
+  margin-top:10rpx;
+  /* display: flex; */
+  flex-direction: column;
+  font-size: 28rpx;
+  color: white;
+  display: inline-block;
+
+}
+

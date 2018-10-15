@@ -19,8 +19,18 @@
             </view>
         </scroll-view>
     </view>
+    <!-- 优惠券 -->
     <view class="coupons">
-        
+        <scroll-view scroll-x="true" class="coupons_scroll">
+          <view wx:for-items="{{coupons_array}}" wx:key="item.price" class="coupon_item">
+              <view>¥ {{item.price}}元</view>
+              <view>{{item.isNew?'新店':'老店'}}</view>
+              <view>满{{item.needMoney}}元使用</view>
+              <view>领取{{item.day}}内有效</view>
+          </view>
+        </scroll-view>
     </view>
-    <view class="list"></view>
+    <view class="goods_list">
+      
+    </view>
 </view>
