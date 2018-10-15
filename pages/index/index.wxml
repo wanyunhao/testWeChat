@@ -1,21 +1,36 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="banner">
-    <swiper class="swiper_box" indicator-dots="{{true}}"
-  autoplay="{{true}}" interval="{{5000}}" duration="{{1000}}">
-      <block wx:for="{{images}}" wx:key="index">
-        <swiper-item>
-          <image class="scroll_image" src="{{item}}" mode="center"/>
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
-  <!-- 类型 -->
-  <view class="item_select">
-    <scroll-view class="type-navbar" scroll-x="true">
-      <view wx:for="{{typeArray}}" wx:key="index" class="type_item {{index==typeIndex?'type_item_select':'type_item_no_select'}}" bindtap="changeTypeClick" data-id="{{index}}">{{item}}</view>
-    </scroll-view>
-  </view>
-  <view class="coupons"></view>
-  <view class="list"></view>
+    <view class="banner">
+        <swiper class="swiper_box" indicator-dots="{{true}}"
+                autoplay="{{true}}" interval="{{5000}}" duration="{{1000}}">
+            <block wx:for="{{images}}" wx:key="index">
+                <swiper-item>
+                    <image class="scroll_image" src="{{item}}" mode="center"/>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <!-- 类型 -->
+    <view class="item_select">
+        <scroll-view class="type-navbar" scroll-x="true">
+            <view wx:for="{{typeArray}}" wx:key="index"
+                  class="type_item {{index==typeIndex?'type_item_select':'type_item_no_select'}}"
+                  bindtap="changeTypeClick" data-id="{{index}}">{{item}}
+            </view>
+        </scroll-view>
+    </view>
+    <!-- 优惠券 -->
+    <view class="coupons">
+        <scroll-view scroll-x="true" class="coupons_scroll">
+          <view wx:for-items="{{coupons_array}}" wx:key="item.price" class="coupon_item">
+              <view>¥ {{item.price}}元</view>
+              <view>{{item.isNew?'新店':'老店'}}</view>
+              <view>满{{item.needMoney}}元使用</view>
+              <view>领取{{item.day}}内有效</view>
+          </view>
+        </scroll-view>
+    </view>
+    <view class="goods_list">
+      
+    </view>
 </view>

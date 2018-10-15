@@ -11,7 +11,15 @@ Page({
     length:11,
     images: ["http://cc.cocimg.com/api/uploads/181015/492454bf9ad697b622345c0873f3b917.jpg", "http://cc.cocimg.com/api/uploads/181011/55670ea1ada8d2cb93c57501e4c81ad1.jpg","http://cc.cocimg.com/api/uploads/181012/7ea2a0f8357798ce889021740a09388a.png"],
     typeArray: ["特价区", "裙装", "裤子", "衣服", "哈哈", "呵呵呵", "吊带苏", "嘻嘻嘻", "袜子"],
-    typeIndex:0
+    typeIndex:0,
+    coupons_array:[
+        {price:100,isNew:true,needMoney:300,day:15},
+        {price:200,isNew:false,needMoney:400,day:15},
+        {price:300,isNew:true,needMoney:500,day:15},
+        {price:400,isNew:false,needMoney:600,day:15},
+        {price:500,isNew:false,needMoney:700,day:15},
+        {price:600,isNew:true,needMoney:800,day:15}
+    ]
   },
   //事件处理函数
   bindViewTap: function() {
