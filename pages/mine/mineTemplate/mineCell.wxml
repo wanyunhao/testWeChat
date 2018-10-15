@@ -1,0 +1,47 @@
+<!-- headerView -->
+<template name='mineHeaderView'>
+  <view class='mineHeaderView'>
+    <image class='userHeader' src='{{avatarUrl}}'></image>
+    <text class='userName'>{{nickName}}</text>
+  </view>
+</template>
+
+<!-- account -->
+<template name='mineAccountView'>
+  <view class='mineAccountView' style='background:none;display:flex;flex-direction:column;height:auto;'>
+
+    <text style='display:flex;margin-left:70rpx;'> 余额 {{balance}} 元， 冻结 {{freeze}} 元</text>
+    <view style='display:flex;padding-bottom:20rpx;'>
+      <button type='primary' style='width:100%;margin-left:70rpx;' bindtap="recharge">充值</button>
+      <button type='warn' style='width:100%;margin-left:70rpx;margin-right:70rpx;' bindtap="withdraw">提现</button>
+    </view>
+
+  </view>
+</template>
+
+<!-- functionView -->
+<template name='mineCellItem' bindtap='itemClick' data-index='{{index}}'>
+
+  <view class='mineCellContentView' wx:if='{{type==0}}'>
+    <template is='mineCellItemBase' data='{{title}}' />
+    <button style='width:100%;margin-right:10rpx;' bindtap="btnClick" data-index='{{index}}'>{{btnTitle}}</button>
+  </view>
+
+  <view class='mineCellContentView' wx:if='{{type==1}}'>
+    <template is='mineCellItemBase' data='{{title}}' />
+  </view>
+
+  <view class='mineCellContentView' wx:if='{{type==2}}'>
+    <button style='width:100%;margin-left:20rpx;margin-right:20rpx;' bindtap="btnClick" data-index='{{index}}'>{{btnTitle}}
+    </button>
+  </view>
+
+</template>
+
+<template name='mineCellItemBase'>
+
+  <view class='mineCellContentViewBase'>
+    <text style='display:flex;margin-left:70rpx'>{{title}}</text>
+  </view>
+
+</template>
