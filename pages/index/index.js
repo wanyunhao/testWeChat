@@ -19,6 +19,59 @@ Page({
         {price:400,isNew:false,needMoney:600,day:15},
         {price:500,isNew:false,needMoney:700,day:15},
         {price:600,isNew:true,needMoney:800,day:15}
+    ],
+    goods_list:[
+      [
+        {
+          pic: "https://g-search3.alicdn.com/img/bao/uploaded/i4/i2/1699083733/O1CN011dRkydHWV82yelq_!!0-item_pic.jpg_250x250.jpg_.webp", name:"特价区",price:10
+        },
+        {
+          pic: "https://g-search3.alicdn.com/img/bao/uploaded/i4/i2/1699083733/O1CN011dRkydHWV82yelq_!!0-item_pic.jpg_250x250.jpg_.webp", name: "特价区", price: 10
+        },
+        {
+          pic: "https://g-search3.alicdn.com/img/bao/uploaded/i4/i2/1699083733/O1CN011dRkydHWV82yelq_!!0-item_pic.jpg_250x250.jpg_.webp", name: "特价区", price: 10
+        }
+      ],
+      [
+        {
+          pic: "https://g-search3.alicdn.com/img/bao/uploaded/i4/i2/1699083733/O1CN011dRkydHWV82yelq_!!0-item_pic.jpg_250x250.jpg_.webp", name: "裙装", price: 40
+        }
+      ],
+      [
+        {
+          pic: "https://g-search3.alicdn.com/img/bao/uploaded/i4/i2/1699083733/O1CN011dRkydHWV82yelq_!!0-item_pic.jpg_250x250.jpg_.webp", name: "裤子", price: 50
+        }
+      ],
+      [
+        {
+          pic: "https://g-search3.alicdn.com/img/bao/uploaded/i4/i2/1699083733/O1CN011dRkydHWV82yelq_!!0-item_pic.jpg_250x250.jpg_.webp", name: "衣服", price: 60
+        }
+      ],
+      [
+        {
+          pic: "https://g-search3.alicdn.com/img/bao/uploaded/i4/i2/1699083733/O1CN011dRkydHWV82yelq_!!0-item_pic.jpg_250x250.jpg_.webp", name: "哈哈", price: 70
+        }
+      ],
+      [
+        {
+          pic: "https://g-search3.alicdn.com/img/bao/uploaded/i4/i2/1699083733/O1CN011dRkydHWV82yelq_!!0-item_pic.jpg_250x250.jpg_.webp", name: "呵呵呵", price: 80
+        }
+      ],
+      [
+        {
+          pic: "https://g-search3.alicdn.com/img/bao/uploaded/i4/i2/1699083733/O1CN011dRkydHWV82yelq_!!0-item_pic.jpg_250x250.jpg_.webp", name: "吊带苏", price: 90
+        }
+      ],
+      [
+        {
+          pic: "https://g-search3.alicdn.com/img/bao/uploaded/i4/i2/1699083733/O1CN011dRkydHWV82yelq_!!0-item_pic.jpg_250x250.jpg_.webp", name: "嘻嘻嘻", price: 10
+        }
+      ],
+      [
+        {
+          pic: "https://g-search3.alicdn.com/img/bao/uploaded/i4/i2/1699083733/O1CN011dRkydHWV82yelq_!!0-item_pic.jpg_250x250.jpg_.webp", name: "袜子", price: 100
+        }
+      ]
     ]
   },
   //事件处理函数
@@ -64,9 +117,15 @@ Page({
     })
   },
   changeTypeClick: function(e) {
-    console.log(e);
+    
     this.setData({
       typeIndex: e.currentTarget.dataset.id
+    })
+  },
+  item_click: function(e) {
+    console.log(e);
+    wx.navigateTo({
+      url: '/pages/shop-detail/shop-detail?title=' + e.currentTarget.dataset.name,
     })
   }
 })
