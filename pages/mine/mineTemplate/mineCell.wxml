@@ -20,19 +20,19 @@
 </template>
 
 <!-- functionView -->
-<template name='mineCellItem' bindtap='itemClick' data-index='{{index}}'>
+<template name='mineCellItem' >
 
-  <view class='mineCellContentView' wx:if='{{type==0}}' style='display:flex;'>
+  <view class='mineCellContentView' wx:if='{{type==0}}' style='display:flex;'bindtap='itemClick' data-index='{{index}}'>
     <template is='mineCellItemBase' data='{{title}}' />
     <button style='margin-right:20rpx;margin-bottom:20rpx' bindtap="btnClick" data-index='{{index}}'>{{btnTitle}}</button>
   </view>
 
-  <view class='mineCellContentView' wx:if='{{type==1}}' style='display:flex;'>
+  <view class='mineCellContentView' wx:if='{{type==1}}' style='display:flex;'bindtap='itemClick' data-index='{{index}}'>
     <template is='mineCellItemBase' data='{{title}}' />
   </view>
 
-  <view class='mineCellContentView' wx:if='{{type==2}}' style='display:flex;'>
-    <button style='margin-bottom:20rpx' bindtap="btnClick" data-index='{{index}}'>{{btnTitle}}
+  <view class='mineCellContentView' wx:if='{{type==2}}' style='display:flex;border:none;padding:20rpx;width:auto;'bindtap='itemClick' data-index='{{index}}'>
+    <button  bindtap="btnClick" data-index='{{index}}'>{{btnTitle}}
     </button>
   </view>
 
