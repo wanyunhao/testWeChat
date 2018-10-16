@@ -1,7 +1,17 @@
 <view class = 'container'>
 
-<view style='width:100%;background:#eee;height:20rpx;'></view>
+  <form bindsubmit="bindSave">
 
+    <!-- 输入 -->
+    <view style='display:flex;font-size:28rpx;margin-top:20rpx;background-color: #fff;' class='inputContainer'>
+      <view style='padding:25rpx;'>提现金额</view>
+      <input style='padding:20rpx' name="amount" class="input" type="text" placeholder="最少100元起" />
+    </view>
 
+    <!-- 按钮 -->
+    <button type='warn' style='margin:20rpx;height:80rpx;' formType="submit">申请提现</button>
+    <button type='default' style='margin:20rpx;height:80rpx;' bindtap="bindCancel">取消</button>
+
+  </form>
 
 </view>
