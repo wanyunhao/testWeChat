@@ -54,6 +54,7 @@
   margin-left:10rpx;
   margin-top:10rpx;
   /* display: flex; */
+  padding-left: 10rpx;
   flex-direction: column;
   font-size: 28rpx;
   color: white;
@@ -61,3 +62,29 @@
 
 }
 
+.goods_list {
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap:wrap;
+  background-color: #F2F2F2;
+}
+.goods_list_item {
+  background-color: white;
+  margin-bottom: 20rpx;
+}
+.goods_list image {
+  width: 339rpx;
+  height: 339rpx;
+}
+.goods_list_item view:nth-child(2) {
+  font-size: 30rpx;
+  color: black;
+  padding-left: 20rpx;
+}
+.goods_list_item view:nth-child(3) {
+  font-size: 30rpx;
+  color: red;
+  padding-left: 20rpx;
+  padding-bottom: 20rpx;
+}

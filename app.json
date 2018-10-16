@@ -5,6 +5,9 @@
     "pages/mine/mine",
     "pages/mine/recharge/recharge",
     "pages/mine/withDraw/withDraw"
+    "pages/mine",
+    "pages/mine/mine",
+    "pages/shop-detail/shop-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
