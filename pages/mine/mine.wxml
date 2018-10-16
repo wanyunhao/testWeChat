@@ -1,2 +1,22 @@
-<!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<import src='mineTemplate/mineCell.wxml' />
+
+<view class=' contentView'>
+  <!-- 1.headerView -->
+  <template is='mineHeaderView' data='{{...userInfo}}' />
+  <view style="height:20rpx;background: #eee;width:100%;"></view>
+
+  <!-- 2.充值 提现 -->
+  <template is='mineAccountView' data='{{balance,freeze}}' />
+
+  <!-- 3.function -->
+  
+  <block wx:for='{{functionDataDic}}' wx:for-item = 'item' wx:for-index = 'index' wx:key = 'key'>
+  <template is='mineCellItem' data='{{...item}}'/>
+  </block>
+
+
+
+  <!-- 4.other -->
+
+
+</view>
