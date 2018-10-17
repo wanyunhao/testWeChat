@@ -10,13 +10,13 @@
 
   <!-- 3.function -->
   <block wx:for='{{functionDataDic[0]}}' wx:for-item='item' wx:for-index='index' wx:key='key'>
-    <template is='mineCellItem' data='{{...item,index}}' />
+    <template is='mineCellItem' data='{{...item}}' />
   </block>
 
   <!-- 4.other -->
   <view style="height:20rpx;background: #eee;width:100%;"></view>
   <block wx:for='{{functionDataDic[1]}}' wx:for-item='item' wx:for-index='index' wx:key='key'>
-    <template is='mineCellItem' data='{{...item,index}}' />
+    <template is='mineCellItem' data='{{...item}}' />
   </block>
   <view style="height:20rpx;background: #eee;width:100%;"></view>
 

@@ -23,16 +23,16 @@
 <template name='mineCellItem' >
 
   <view class='mineCellContentView' wx:if='{{type==0}}' style='display:flex;'>
-    <template is='mineCellItemBase' data='{{title,index}}' />
-    <button style='margin-right:20rpx;margin-bottom:20rpx;width:300rpx;' bindtap="btnClick" data-index='{{index}}'>{{btnTitle}}</button>
+    <template is='mineCellItemBase' data='{{title,functionType}}' />
+    <button style='margin-right:20rpx;margin-bottom:20rpx;width:300rpx;' bindtap="btnClick" data-functionType='{{functionType}}'>{{btnTitle}}</button>
   </view>
 
   <view class='mineCellContentView' wx:if='{{type==1}}' style='display:flex;'>
-    <template is='mineCellItemBase' data='{{title,index}}' />
+    <template is='mineCellItemBase' data='{{title,functionType}}' />
   </view>
 
   <view class='mineCellContentView' wx:if='{{type==2}}' style='display:flex;border:none;padding:20rpx;width:auto;'>
-    <button  bindtap="btnClick" data-index='{{index}}'>{{btnTitle}}
+    <button  bindtap="btnClick" data-functionType='{{functionType}}'>{{btnTitle}}
     </button>
   </view>
 
@@ -40,7 +40,7 @@
 
 <template name='mineCellItemBase'>
 
-  <view style='width:100%;' class='mineCellContentViewBase' bindtap='itemClick' data-index='{{index}}'>
+  <view style='width:100%;' class='mineCellContentViewBase' bindtap='itemClick' data-functionType='{{functionType}}'>
     <text style='display:flex;margin-left:70rpx'>{{title}}</text>
   </view>
 
