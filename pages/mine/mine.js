@@ -1,3 +1,5 @@
+const app = getApp()
+
 Page({
 
   /**
@@ -6,6 +8,8 @@ Page({
   data: {
     balance: 0,
     freeze: 100,
+    score: 0,
+    score_sign_continuous: 0,
     'userInfo': {
       'nickName': '二哈',
       'avatarUrl': '/images/order-details/icon-ddfh.png',
@@ -53,8 +57,7 @@ Page({
         'btnTitle': ''
       }]
     ]
-
-
+    
   },
 
   /**
@@ -95,10 +98,18 @@ Page({
         break;
       case 2: //我的收货地址
         routePath = 'address/address';
-
         break;
       case 3: //我的优惠券
         routePath = 'coupon/coupon';
+        break;
+      case 5: //关于我们
+      {
+          wx.showModal({
+            title: '关于我们',
+            content: '本系统基于开源小程序商城系统 https://github.com/EastWorld/wechat-app-mall 搭建，祝大家使用愉快！',
+            showCancel: false
+          })
+      }
         break;
       default:
         break;
@@ -108,8 +119,7 @@ Page({
       wx.navigateTo({
         url: routePath,
       })
-    }
-
+    };
 
   },
   /**
@@ -117,20 +127,133 @@ Page({
    */
   btnClick: function(event) {
     // console.log(event);
-    var clickIndex = event.currentTarget.dataset.functiontype;
-    console.log(clickIndex);
+    var functiontype = event.currentTarget.dataset.functiontype;
+    console.log(functiontype);
+    var that = this;
+
+    switch (functiontype) {
+      case 0://签到
+      {
+          that.signAction();
+      }
+      break;
+      case 4://绑定手机号
+      {
+          that.bingPhone(event);
+      }
+      break;
+
+      default:break;
+
+    }
     
+  },
+  /**
+   * QD
+   */
+  signAction : function (){
+    var that = this;
+    wx.request({
+      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/score/sign',
+      data: {
+        token: wx.getStorageSync('token')
+      },
+      success: function (res) {
+        if (res.data.code == 0) {
+          that.getUserAmount();
+          that.checkScoreSign();
+        } else {
+          wx.showModal({
+            title: '错误',
+            content: res.data.msg,
+            showCancel: false
+          })
+        }
+      }
+    })
+  },
+  checkScoreSign: function () {
+    var that = this;
+    wx.request({
+      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/score/today-signed',
+      data: {
+        token: wx.getStorageSync('token')
+      },
+      success: function (res) {
+        if (res.data.code == 0) {
+          that.setData({
+            score_sign_continuous: res.data.data.continuous
+          });
+        }
+      }
+    })
+  },
+  getUserAmount: function () {
+    var that = this;
+    wx.request({
+      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/amount',
+      data: {
+        token: wx.getStorageSync('token')
+      },
+      success: function (res) {
+        if (res.data.code == 0) {
+          that.setData({
+            balance: res.data.data.balance,
+            freeze: res.data.data.freeze,
+            score: res.data.data.score
+          });
+        }
+      }
+    })
+
+  },
+  /**
+   * BD
+   */
+  bingPhone : function (e) {
+    if (!e.detail.errMsg || e.detail.errMsg != "getPhoneNumber:ok") {
+      wx.showModal({
+        title: '提示',
+        content: '无法获取手机号码',
+        showCancel: false
+      })
+      return;
+    }
+    var that = this;
+    wx.request({
+      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/wxapp/bindMobile',
+      data: {
+        token: wx.getStorageSync('token'),
+        encryptedData: e.detail.encryptedData,
+        iv: e.detail.iv
+      },
+      success: function (res) {
+        if (res.data.code == 0) {
+          wx.showToast({
+            title: '绑定成功',
+            icon: 'success',
+            duration: 2000
+          })
+          that.getUserApiInfo();
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '绑定失败',
+            showCancel: false
+          })
+        }
+      }
+    })
   },
   /**
    * 重新授权登录
    */
   reLogin: function() {
 
-    wx.showToast({
-      title: '重新授权登录',
-    })
+    wx.navigateTo({
+      url: 'reLogin/reLogin',
+    });
+
   },
-
-
 
 })
