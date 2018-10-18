@@ -1,0 +1,17 @@
+.quickGuideItem {
+    width: 150rpx;
+    height: 100%;
+    text-align: center;
+    font-size:28rpx;
+    color:#353535;
+    box-sizing: border-box;
+    position: relative;
+
+}
+.quickGuideItemactive{
+    width: 150rpx;
+    height: 100%;
+    text-align: center;
+    color:#e64340;
+    border-bottom: 6rpx solid #e64340;
+}

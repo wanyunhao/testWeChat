@@ -1,0 +1,30 @@
+<view class='container'>
+
+  <!-- 1.tyep切换 -->
+  <view class='quickGuideView' style='display:flex;font-size:28rpx;'>
+
+    <block wx:for='{{statusType}}' wx:for-item='item' wx:for-index='index' wx:for-key='key'>
+
+      <view class="quickGuideItem{{index == currentType? 'active':''}}"> {{item}}</view>
+
+    </block>
+
+
+  </view>
+
+
+  <!-- 2.空数据视图 -->
+    <view class="no-order" hidden="{{orderList ? true : false}}">
+     
+      <image src="/images/no-order.png" class="no-order-img"></image>
+      <view class="text">暂无订单</view>
+
+    </view>
+
+
+
+
+    <!-- 3.item视图 -->
+
+
+  </view>
