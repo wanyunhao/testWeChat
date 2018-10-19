@@ -1,7 +1,7 @@
 <view class='container'>
 
   <!-- 1.tyep切换 -->
-  <view class='quickGuideView' style='display:flex;font-size:28rpx;'>
+  <view class='quickGuideView' style='display:flex;font-size:28rpx;line-height:88rpx;height:88rpx;width:100%'>
 
     <block wx:for='{{statusType}}' wx:for-item='item' wx:for-index='index' wx:for-key='key'>
 
@@ -14,15 +14,12 @@
 
 
   <!-- 2.空数据视图 -->
-    <view class="no-order" hidden="{{orderList ? true : false}}">
+    <view class="no-order" hidden="{{orderList ? true : false}}" style='position:fixed;width:100%;top:90rpx;bottom:0;background-color:#f2f2f2;text-align:center;padding-top:200rpx;'>
      
-      <image src="/images/no-order.png" class="no-order-img"></image>
-      <view class="text">暂无订单</view>
+      <image src="/images/no-order.png" class="no-order-img" style='width:81rpx;height:96rpx'></image>
+      <view class="text" style='font-size:28rpx'>暂无订单</view>
 
     </view>
-
-
-
 
     <!-- 3.item视图 -->
 

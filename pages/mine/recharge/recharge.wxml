@@ -9,8 +9,8 @@
     </view>
 
     <!-- 按钮 -->
-    <button type='warn' style='margin:20rpx;height:80rpx;' formType="submit">立即支付</button>
-    <button type='default' style='margin:20rpx;height:80rpx;' bindtap="bindCancel">取消</button>
+    <button type='warn' style='margin:20rpx;line-height:80rpx;' formType="submit">立即支付</button>
+    <button type='default' style='margin:20rpx;line-height:80rpx;' bindtap="bindCancel">取消</button>
 
   </form>
 
