@@ -20,9 +20,7 @@ page {
     color:#e64340;
     border-bottom: 6rpx solid #e64340;
     position: relative;
-        font-size:28rpx;
-
-
+   align-items:  font-size:28rpx;
 
 }
 
