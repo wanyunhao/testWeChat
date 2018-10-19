@@ -1,0 +1,12 @@
+<!--pages/mine/address/address.wxml-->
+
+<view class='container'>
+
+
+  <view class='bottomView' style='font-size:28rpx;'>
+
+    <view class='add-btn'>新增收货地址</view>
+
+  </view>
+
+</view>

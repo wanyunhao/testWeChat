@@ -1,0 +1,10 @@
+<!--pages/mine/reLogin/reLogin.wxml-->
+
+<view class='container' style='font-size:28rpx;'>
+
+<view style='margin:30rpx;'> 1、同意当前小程序获取我的微信头像；</view>
+<view style='margin:30rpx;'> 2、同意当前小程序获取我的微信昵称等其他信息；</view>
+
+<button type = 'warn' style='margin:30rpx;line-height:80rpx;font-size:35rpx;' bindtap='bindgetuserinfo'>授权登录</button>                     
+
+</view>

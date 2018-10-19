@@ -4,8 +4,11 @@
     "pages/logs/logs",
     "pages/mine/mine",
     "pages/mine/recharge/recharge",
+    "pages/mine/address/address",
+    "pages/mine/order/order",
+    "pages/mine/coupon/coupon",
+    "pages/mine/reLogin/reLogin",
     "pages/mine/withDraw/withDraw",
-    "pages/mine",
     "pages/shop-detail/shop-detail"
   ],
   "window": {
