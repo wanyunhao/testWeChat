@@ -5,7 +5,7 @@
 
   <view class='bottomView' style='font-size:28rpx;'>
 
-    <view class='add-btn'>新增收货地址</view>
+    <view class='add-btn' bindtap='addNewAddress'>新增收货地址</view>
 
   </view>
 

@@ -1,0 +1,25 @@
+<!--pages/mine/address/add-address/add-address.wxml-->
+
+<import src='../../mineTemplate/mineCell.wxml' />
+
+<view class='container'>
+
+
+  <!-- 1、input -->
+  <block wx:for='{{initialData}}' wx:for-item='item' wx:for-index='index' wx:for-key='key'>
+
+    <template is='inputView' data='{{...item}}' />
+
+  </block>
+
+  <!-- 2.btn -->
+  <view class='btnContainer'>
+
+    <button type='warn' class='actionBtn' bindtap='saveAction'> 保存</button>
+    <button type='primary'  class='actionBtn' bindtap='fromWeChatAction'> 从微信读取</button>
+    <button type='default'  class='actionBtn' bindtap='cancleAction'> 取消</button>
+
+  </view>
+
+
+</view>

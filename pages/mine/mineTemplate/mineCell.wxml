@@ -45,3 +45,12 @@
   </view>
 
 </template>
+
+<template name='inputView'>
+  <view style='width:100%;font-size:28rpx;display:flex;line-height:88rpx;background-color:#fff' class='inputContainer'>
+    <text style='padding-left:30rpx;width:150rpx;'>{{title}}</text>
+    <input placeholder='{{placeholder}}' style='margin-left:40rpx;height:88rpx'></input>
+  </view>
+   <view style='background-color:#eee;height:2rpx;margin-left:30rpx'></view>
+
+</template>

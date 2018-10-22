@@ -19,6 +19,8 @@
     height:100rpx;
     line-height: 100rpx;
     background: #fff url(https://cdn.it120.cc/images/weappshop/arrow-right.png) no-repeat 705rpx center;
+    background-size: 15rpx auto;
+
 }
 .bottom-box .add-btn{
     margin-left: 30rpx;
