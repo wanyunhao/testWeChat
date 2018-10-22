@@ -34,8 +34,6 @@ Page({
   },
   bindchange: function(e) {
 
-    console.log(e);
-
     var index = e.detail.current;
 
     this.setData({

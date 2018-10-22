@@ -1,0 +1,3 @@
+<!--pages/start/start.wxml-->
+
+<button type = 'warn' style='margin:30rpx;line-height:80rpx;font-size:35rpx;' bindtap='EnterAction'>启动</button>                     

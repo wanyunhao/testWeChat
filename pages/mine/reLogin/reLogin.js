@@ -27,14 +27,14 @@ Page({
   /**
    * 授权登录
    */
-  bindgetuserinfo: function(e) {
+  bindGetUserInfo: function(e) {
 
     if (!e.detail.userInfo) {
-      wx.showModal({
-        title: '提示',
-        content: '无法登录，请重试',
-        showCancel: false
-      })
+      // wx.showModal({
+      //   title: '提示',
+      //   content: '无法登录，请重试',
+      //   showCancel: false
+      // })
       return;
     }
     wx.setStorageSync('userInfo', e.detail.userInfo)

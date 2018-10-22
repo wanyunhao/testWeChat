@@ -19,7 +19,7 @@
 
     <view style='margin:20rpx'> 您也可以直接给下面的支付宝账户转账;</view>
     <view style='margin:20rpx'> 转账金额将自动进入您的账户:</view>
-    <input style='margin:20rpx' class="input" type="text" value='javazj@foxmail.com'></input> 
+    <input style='margin:20rpx' class="input" type="text" value='jxh@foxmail.com'></input> 
     <view style='margin:20rpx;font-size: 30rpx;margin-top:30rpx;color:red'> 转账备注请填写:</view>
     <input style='margin:20rpx' class="input" type="text" placeholder='备注'></input> 
 

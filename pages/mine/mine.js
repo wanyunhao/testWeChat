@@ -9,11 +9,8 @@ Page({
     balance: 0,
     freeze: 100,
     score: 0,
+    userInfo:{},
     score_sign_continuous: 0,
-    'userInfo': {
-      'nickName': '二哈',
-      'avatarUrl': '/images/order-details/icon-ddfh.png',
-    },
     functionDataDic: [
       [{
           'title': '当前积分',
@@ -58,6 +55,20 @@ Page({
       }]
     ]
     
+  },
+
+  onShow () {
+    let userInfo = wx.getStorageSync('userInfo')
+    let that = this;
+    if (!userInfo) {
+      wx.navigateTo({
+        url: "reLogin/reLogin"
+      })
+    } else {
+      that.setData({
+        userInfo: userInfo,
+      })
+    }
   },
 
   /**
