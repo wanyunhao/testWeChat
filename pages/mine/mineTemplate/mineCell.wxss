@@ -41,3 +41,7 @@
     line-height: 100rpx;
 
 }
+
+.hui {
+      color: #777;
+}

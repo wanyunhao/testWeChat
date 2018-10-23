@@ -1,5 +1,7 @@
 /* pages/mine/address/add-address/add-address.wxss */
 
+@import '../../mineTemplate/mineCell.wxss';
+
 page {
 
   height: 100%;

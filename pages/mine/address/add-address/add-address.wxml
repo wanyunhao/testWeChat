@@ -7,8 +7,9 @@
 
   <!-- 1、input -->
   <block wx:for='{{initialData}}' wx:for-item='item' wx:for-index='index' wx:for-key='key'>
-
-    <template is='inputView' data='{{...item}}' />
+ 
+    <template is='inputView' data='{{...item}}' wx:if = '{{item.type == 0}}'/>
+    <template is='inputView' data='{{...item,...addressInfo,...selAddressInfo,selType,mode}}' wx:if = '{{item.type == 1}}'/>
 
   </block>
 
