@@ -68,8 +68,8 @@ Page({
   
     var name = e.detail.value.name;
     var phone = e.detail.value.phone;
-    var detailAddress = e.detail.detailAddress;
-    var code = e.detail.code;
+    var detailAddress = e.detail.value.detailAddress;
+    var code = e.detail.value.code;
 
     if (this.data.selAddressInfo.selDistrict == ''){
       wx.showToast({
@@ -86,24 +86,27 @@ Page({
       return;
     }
 
+  var that = this;
+
   wx.request({
     url: app.globalData.baseUrl + '/api/address/create',
     data: {
       'connect_name':name,
       'connect_phone': phone,
-      'province': this.data.selAddressInfo.selProvince,
-      'city': this.data.selAddressInfo.selCity,
-      'area': this.data.selAddressInfo.selDistrict,
+      'province': that.data.selAddressInfo.selProvince,
+      'city': that.data.selAddressInfo.selCity,
+      'area': that.data.selAddressInfo.selDistrict,
       'address': detailAddress,
       'is_default': '0',
       'code': code,
       'user_id': '000',
     },
-    method: 'Post',
+    method: 'Get',
     dataType: 'json',
     responseType: 'text',
     success: function(res) {
     
+    console.log(res);
       wx.showToast({
         title: '成功',
         duration: 0,
