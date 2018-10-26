@@ -2,6 +2,12 @@
 
 <view class='container'>
 
+  <block wx:for='{{addressList}}' wx:for-item='item' wx:for-key='key'>
+
+    <view>{{item.connect_name}} {{item.connect_phone}}</view>
+
+  </block>
+
 
   <view class='bottomView' style='font-size:28rpx;'>
 

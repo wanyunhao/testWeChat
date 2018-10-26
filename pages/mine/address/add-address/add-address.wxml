@@ -4,23 +4,23 @@
 
 <view class='container'>
 
+  <form bindsubmit='saveAction'>
+    <!-- 1、input -->
+    <block wx:for='{{initialData}}' wx:for-item='item' wx:for-index='index' wx:for-key='key'>
 
-  <!-- 1、input -->
-  <block wx:for='{{initialData}}' wx:for-item='item' wx:for-index='index' wx:for-key='key'>
- 
-    <template is='inputView' data='{{...item}}' wx:if = '{{item.type == 0}}'/>
-    <template is='inputView' data='{{...item,...addressInfo,...selAddressInfo,selType,mode}}' wx:if = '{{item.type == 1}}'/>
+      <template is='inputView' data='{{...item}}' wx:if='{{item.type == 0}}' />
+      <template is='inputView' data='{{...item,...selAddressInfo}}' wx:if='{{item.type == 1}}' />
 
-  </block>
+    </block>
 
-  <!-- 2.btn -->
-  <view class='btnContainer'>
+    <!-- 2.btn -->
+    <view class='btnContainer'>
 
-    <button type='warn' class='actionBtn' bindtap='saveAction'> 保存</button>
-    <button type='primary'  class='actionBtn' bindtap='fromWeChatAction'> 从微信读取</button>
-    <button type='default'  class='actionBtn' bindtap='cancleAction'> 取消</button>
+      <button type='warn' class='actionBtn' formType='submit'> 保存</button>
+      <button type='primary' class='actionBtn' bindtap='fromWeChatAction'> 从微信读取</button>
+      <button type='default' class='actionBtn' bindtap='cancleAction'> 取消</button>
 
-  </view>
-
+    </view>
+  </form>
 
 </view>

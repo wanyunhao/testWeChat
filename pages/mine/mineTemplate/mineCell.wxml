@@ -15,7 +15,7 @@
       <button type='primary' style='width:100%;margin-left:70rpx;' bindtap="recharge">充值</button>
       <button type='warn' style='width:100%;margin-left:70rpx;margin-right:70rpx;' bindtap="withdraw">提现</button>
     </view>
-
+ 
   </view>
 </template>
 
@@ -50,19 +50,19 @@
 
   <view style='width:100%;font-size:28rpx;display:flex;line-height:88rpx;background-color:#fff' class='inputContainer' wx:if='{{type == 0}}'>
     <text style='padding-left:30rpx;width:150rpx;'>{{title}}</text>
-    <input placeholder='{{placeholder}}' style='margin-left:40rpx;height:88rpx'></input>
+    <input placeholder='{{placeholder}}' style='margin-left:40rpx;height:88rpx'  name ='{{linkName}}'></input>
   </view>
 
   <view style='width:100%;font-size:28rpx;display:flex;line-height:88rpx;background-color:#fff' class='inputContainer' wx:if='{{type == 1}}'>
     <text style='padding-left:30rpx;width:150rpx;'>{{title}}</text>
 
-    <picker mode = '{{mode}}' style='margin-left:40rpx;' bindchange="bindPickerAddressChange" range="{{selType==0?provinces:(selType == 1?citys:districts)}}">
+    <picker mode = 'region' style='margin-left:40rpx;' bindchange="bindPickerAddressChange" >
       
       <view  class="picker {{selProvince==''?'hui':''}}" wx:if ='{{selProvince.length==0}}'>
       请选择
       </view>
-      <view  class="picker {{selProvince==''?'hui':''}}" wx:if ='{{selProvince.length}}'>
-        {{selProvince+selCity+selDistrict}}
+      <view  class="picker {{selProvince==''?'hui':''}}" wx:if ='{{selProvince.length>0}}'>
+        {{selProvince}} {{selCity}} {{selDistrict}}
       </view>
 
     </picker>
