@@ -2,14 +2,33 @@
 
 <view class='container'>
 
-  <block wx:for='{{addressList}}' wx:for-item='item' wx:for-key='key'>
+  <view class='addressListView' style='margin-bottom:100rpx;'>
 
-    <view>{{item.connect_name}} {{item.connect_phone}}</view>
+    <block wx:for='{{addressList}}' wx:for-item='item' wx:for-key='key' wx:for-index = 'index'>
+      <view class='addressContainer'>
 
-  </block>
+        <view class='addressInfoView' style='padding:20rpx;'>
+          <view style='font-size:30rpx;color:#3b3b3b;'>{{item.connect_name}} {{item.connect_phone}}</view>
+          <view style='font-size:24rpx;color:#9f9f9f'>{{item.province}} {{item.city}} {{item.area}} {{item.address}}</view>
+        </view>
 
+        <view style='background-color:#eee;height:2rpx;margin-left:20rpx;margin-right:20rpx;'></view>
 
-  <view class='bottomView' style='font-size:28rpx;'>
+        <view class='editView' style='display:flex;font-size:26rpx;line-height:80rpx;margin-left:20rpx;color:#3b3b3b'>
+          <view style='width:410rpx;' bindtap = 'defaultAddressAction' data-obj='{{index}}'> ○ 默认地址</view>
+          <view style='width:150rpx;' bindtap = 'editAction' data-obj='{{index}}'>编辑</view>
+          <view style='width:150rpx;' bindtap = 'deleteAction' data-obj='{{index}}'>删除</view>
+        </view>
+
+        <view style='width:100%;background-color:#eee;height:20rpx;'></view>
+
+      </view>
+
+    </block>
+
+  </view>
+
+  <view class='bottomView' style='font-size:28rpx;line-height:100rpx;color:#3b3b3b'>
 
     <view class='add-btn' bindtap='addNewAddress'>新增收货地址</view>
 

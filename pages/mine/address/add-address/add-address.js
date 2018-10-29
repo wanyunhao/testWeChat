@@ -52,14 +52,23 @@ Page({
       selProvinceIndex: 0,
       selCityIndex: 0,
       selDistrictIndex: 0,
-    }
-
+    },
+    isEdit:false,
+    addressInfo:{},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var addressInfo = options.addressInfo;
+    if(addressInfo.id>0){
+
+        this.setData({
+          isEdit:true,
+          addressInfo:addressInfo,
+        });
+    }
 
   },
 
