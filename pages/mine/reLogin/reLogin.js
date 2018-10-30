@@ -48,7 +48,7 @@ Page({
     if (token) {
 
       wx.request({
-        url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/check-token',
+        url: app.globalData.baseUrl + '/api/user/login',
         data: {
           token: token
         },
@@ -68,7 +68,7 @@ Page({
     wx.login({
       success: function(res) {
         wx.request({
-          url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/wxapp/login',
+          url: app.globalData.baseUrl +'/api/user/login',
           data: {
             code: res.code
           },
@@ -114,7 +114,7 @@ Page({
             var encryptedData = res.encryptedData;
             // 下面开始调用注册接口
             wx.request({
-              url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/wxapp/register/complex',
+              url: app.globalData.baseUrl + '/api/user/register',
               data: {
                 code: code,
                 encryptedData: encryptedData,

@@ -2,6 +2,7 @@
   "pages": [
     
     "pages/index/index",
+    "pages/shopping-cart/index",
     "pages/logs/logs",
     "pages/mine/mine",
     "pages/mine/recharge/recharge",
@@ -33,10 +34,10 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/shopping-cart/index",
         "iconPath": "images/nav/cart-off.png",
         "selectedIconPath": "images/nav/cart-on.png",
-        "text": "日志"
+        "text": "购物车"
       },
       {
         "pagePath": "pages/mine/mine",

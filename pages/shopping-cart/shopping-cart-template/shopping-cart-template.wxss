@@ -1,0 +1,29 @@
+
+.container{
+    justify-content:initial;
+}
+
+.title-box {
+
+    width: 100%;
+    padding-top: 330rpx;
+    text-align: center;
+    font-size:28rpx;
+    color:#999;
+    background: url(https://cdn.it120.cc/images/weappshop/icon-cart.png) no-repeat center 205rpx;
+    background-size: 100rpx auto;
+    margin-bottom: 50rpx;
+
+}
+
+.btn-to-shopping {
+  margin-top: 50rpx;
+  width: 300rpx;
+  text-align: center;
+  font-size:30rpx;
+  background: #e64340;
+  color: #fff;
+  line-height: 70rpx;
+  border-radius: 10rpx;
+  margin-left: 225rpx;
+}
