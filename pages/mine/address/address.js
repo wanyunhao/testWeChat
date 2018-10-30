@@ -61,7 +61,8 @@ Page({
     var index = e.currentTarget.dataset.obj;
     var that = this;
     var addressList = that.data.addressList;
-    var item = addressList[index];
+    var item = JSON.stringify(addressList[index]);
+
     wx.navigateTo({
 
       url: 'add-address/add-address?addressInfo='+item,

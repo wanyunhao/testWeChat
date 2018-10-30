@@ -14,12 +14,15 @@ Page({
         title: '联系人',
         linkName: 'name',
         placeholder: '姓名',
+        value: '',
         'type': 0,
       },
       {
         title: '手机号码',
         linkName: 'phone',
         placeholder: '11位手机号码',
+        value: '',
+
         'type': 0,
 
       },
@@ -27,6 +30,8 @@ Page({
         title: '选择地址',
         linkName: '',
         placeholder: '请选择',
+        value: '',
+
         'type': 1,
 
       },
@@ -34,12 +39,16 @@ Page({
         title: '详细地址',
         linkName: 'detailAddress',
         placeholder: '街道门牌信息',
+        value: '',
+
         'type': 0,
 
       },
       {
         title: '邮政编号',
         linkName: 'code',
+        value: '',
+
         placeholder: '',
         'type': 0,
 
@@ -53,41 +62,56 @@ Page({
       selCityIndex: 0,
       selDistrictIndex: 0,
     },
-    isEdit:false,
-    addressInfo:{},
+    isEdit: false,
+    id: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var addressInfo = options.addressInfo;
-    if(addressInfo.id>0){
+    var addressInfo = JSON.parse(options.addressInfo);
 
-        this.setData({
-          isEdit:true,
-          addressInfo:addressInfo,
-        });
+    console.log(addressInfo);
+    if (addressInfo.id) {
+
+      var initialData = this.data.initialData;
+      initialData[0].value = addressInfo.connect_name;
+      initialData[1].value = addressInfo.connect_phone;
+      initialData[2].value = addressInfo.province + ' ' + addressInfo.city + ' ' + addressInfo.area;
+      initialData[3].value = addressInfo.address;
+      initialData[4].value = addressInfo.code;
+      this.data.id = addressInfo.id;
+
+      this.data.selAddressInfo.selProvince = addressInfo.province;
+      this.data.selAddressInfo.selCity = addressInfo.city;
+      this.data.selAddressInfo.selDistrict = addressInfo.area;
+      this.data.detailAddress = addressInfo.address;
+
+      this.setData({
+        isEdit: true,
+        initialData: initialData,
+      });
     }
 
   },
 
   // action
   saveAction: function(e) {
-  
+
     var name = e.detail.value.name;
     var phone = e.detail.value.phone;
     var detailAddress = e.detail.value.detailAddress;
     var code = e.detail.value.code;
 
-    if (this.data.selAddressInfo.selDistrict == ''){
+    if (this.data.selAddressInfo.selDistrict == '' && this.data.isEdit == false) {
       wx.showToast({
         title: '请选择地址',
       })
       return;
     }
 
-    if(name == '' || phone == '' || detailAddress == '' || code == ''){
+    if (name == '' || phone == '' || detailAddress == '' || code == '') {
 
       wx.showToast({
         title: '信息不完整',
@@ -95,49 +119,58 @@ Page({
       return;
     }
 
-  var that = this;
+    var that = this;
 
-  wx.request({
-    url: app.globalData.baseUrl + '/api/address/create',
-    data: {
-      'connect_name':name,
-      'connect_phone': phone,
-      'province': that.data.selAddressInfo.selProvince,
-      'city': that.data.selAddressInfo.selCity,
-      'area': that.data.selAddressInfo.selDistrict,
-      'address': detailAddress,
-      'is_default': '0',
-      'code': code,
-      'user_id': '000',
-    },
-    method: 'Get',
-    dataType: 'json',
-    responseType: 'text',
-    success: function(res) {
-    
-    console.log(res);
-      wx.showToast({
-        title: '成功',
-        duration: 0,
-        mask: true,
-        success: function(res) {},
-        fail: function(res) {},
-        complete: function(res) {
+    var routeUrl = '/api/address/create';
+    var id = ''
+    if (this.data.isEdit == true) {
+      routeUrl = '/api/address/update'
+      id = this.data.id;
 
-          wx.navigateBack();
-        },
-      })
-    },
-    fail: function(res) {
-      wx.showToast({
-        title: '失败'+res,
-      })
-    },
-    complete:function (){
+    };
 
-    }
-  
-  })
+    wx.request({
+      url: app.globalData.baseUrl + routeUrl,
+      data: {
+        'connect_name': name,
+        'connect_phone': phone,
+        'province': that.data.selAddressInfo.selProvince,
+        'city': that.data.selAddressInfo.selCity,
+        'area': that.data.selAddressInfo.selDistrict,
+        'address': detailAddress,
+        'is_default': '0',
+        'code': code,
+        'user_id': '000',
+        'id': id,
+      },
+      method: 'Get',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+
+        console.log(res);
+        wx.showToast({
+          title: '成功',
+          duration: 0,
+          mask: true,
+          success: function(res) {},
+          fail: function(res) {},
+          complete: function(res) {
+
+            wx.navigateBack();
+          },
+        })
+      },
+      fail: function(res) {
+        wx.showToast({
+          title: '失败' + res,
+        })
+      },
+      complete: function() {
+
+      }
+
+    })
 
 
 
@@ -161,8 +194,10 @@ Page({
     selAddressInfo.selDistrict = e.detail.value[2];
     console.log(selAddressInfo);
 
-    this.setData({selAddressInfo})
-  
+    this.setData({
+      selAddressInfo
+    })
+
   }
 
 

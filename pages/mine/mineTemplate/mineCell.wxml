@@ -50,7 +50,7 @@
 
   <view style='width:100%;font-size:28rpx;display:flex;line-height:88rpx;background-color:#fff' class='inputContainer' wx:if='{{type == 0}}'>
     <text style='padding-left:30rpx;width:150rpx;'>{{title}}</text>
-    <input placeholder='{{placeholder}}' style='margin-left:40rpx;height:88rpx'  name ='{{linkName}}' value="{{isEdit?connect_name:''}}"></input>
+    <input placeholder='{{placeholder}}' style='margin-left:40rpx;height:88rpx'  name ='{{linkName}}' value="{{isEdit?value:''}}"></input>
   </view>
 
   <view style='width:100%;font-size:28rpx;display:flex;line-height:88rpx;background-color:#fff' class='inputContainer' wx:if='{{type == 1}}'>
@@ -58,13 +58,15 @@
 
     <picker mode = 'region' style='margin-left:40rpx;' bindchange="bindPickerAddressChange" >
       
-      <view  class="picker {{selProvince==''?'hui':''}}" wx:if ='{{selProvince.length==0}}'>
+      <view  class="picker {{selProvince==''?'hui':''}}" wx:if ='{{selProvince.length==0&&isEdit==false}}'>
       请选择
       </view>
       <view  class="picker {{selProvince==''?'hui':''}}" wx:if ='{{selProvince.length>0}}'>
         {{selProvince}} {{selCity}} {{selDistrict}}
       </view>
-
+      <view  class="picker {{value==''?'hui':''}}" wx:if ='{{isEdit==true && value.length>0}}'>
+        {{value}}
+      </view>
     </picker>
 
 
