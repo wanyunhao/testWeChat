@@ -92,6 +92,10 @@ Page({
         isEdit: true,
         initialData: initialData,
       });
+
+      wx.setNavigationBarTitle({
+        title: '修改地址',
+      })
     }
 
   },
