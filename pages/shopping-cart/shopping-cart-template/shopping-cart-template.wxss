@@ -1,29 +1,63 @@
-
-.container{
-    justify-content:initial;
+.container {
+  justify-content: initial;
 }
 
 .title-box {
-
-    width: 100%;
-    padding-top: 330rpx;
-    text-align: center;
-    font-size:28rpx;
-    color:#999;
-    background: url(https://cdn.it120.cc/images/weappshop/icon-cart.png) no-repeat center 205rpx;
-    background-size: 100rpx auto;
-    margin-bottom: 50rpx;
-
+  width: 100%;
+  padding-top: 330rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+  background: url(https://cdn.it120.cc/images/weappshop/icon-cart.png) no-repeat center 205rpx;
+  background-size: 100rpx auto;
+  margin-bottom: 50rpx;
 }
 
 .btn-to-shopping {
   margin-top: 50rpx;
   width: 300rpx;
   text-align: center;
-  font-size:30rpx;
+  font-size: 30rpx;
   background: #e64340;
   color: #fff;
   line-height: 70rpx;
   border-radius: 10rpx;
   margin-left: 225rpx;
+}
+
+/* list */
+
+.titleView {
+  display: flex;
+  background-color: #e64340;
+  line-height: 88rpx;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.titleView.label {
+
+}
+
+.listContentView {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30rpx;
+  width: 870rpx;
+  box-sizing: border-box;
+  transition: margin-left 0.2s ease-in-out;
+  background-color: #fff;
+}
+
+.delete-btn {
+  width: 120rpx;
+  line-height: 220rpx;
+  text-align: center;
+  background: #e64340;
+  font-size: 24rpx;
+  color: #fff;
 }

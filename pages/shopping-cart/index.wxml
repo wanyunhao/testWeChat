@@ -2,6 +2,6 @@
 
 <view class='container'>
 
-  <template is="{{goodsList.length>0 ? 'shopping-cart-goods-list':'no-goods'}}"/>
+  <template is="{{goodsList.length>0 ? 'shopping-cart-goods-list':'no-goods'}}" data='{{isEditting,goodsList}}'/>
 
 </view>
