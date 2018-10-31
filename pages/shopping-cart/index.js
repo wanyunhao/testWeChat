@@ -8,10 +8,21 @@ Page({
     goodsList: [{
         left: '',
         price: 0,
-      }
+        isSelected:false,
+      },
+      {
+
+      },
+      {
+
+      },
 
     ],
+    totalPrice:0,
+    totalScore:0,
     isEditting: false,
+    haveSelected: false,
+    allSelect: false,
     delBtnWidth: 120,
   },
 
@@ -81,14 +92,13 @@ Page({
     }
 
     var obj = this.data.goodsList[parseInt(index)];
+    if (index !== "" && index != null) {
+      obj.left = left;
+      this.setData({
+        goodsList: this.data.goodsList,
+      })
 
-    console.log(obj);
-
-    obj.left = left;
-    this.setData({
-      goodsList: this.data.goodsList,
-    })
-
+    }
 
 
   },
@@ -106,10 +116,8 @@ Page({
       var obj = this.data.goodsList[parseInt(index)];
 
       if (index !== "" && index != null) {
-
-        console.log(obj);
-
         obj.left = left;
+
         this.setData({
           goodsList: this.data.goodsList,
         })
@@ -118,6 +126,24 @@ Page({
     }
 
   },
+
+  selAction:function (e) {
+
+    var index = e.currentTarget.dataset.index;
+    var obj = this.data.goodsList[parseInt(index)];
+
+    var isSel = obj.isSelected;
+    obj.isSelected = !isSel;
+    
+    if (index !== "" && index != null) {
+      this.setData({
+        goodsList: this.data.goodsList,
+        haveSelected:!isSel,
+      })
+    }
+
+
+  }
 
 
 

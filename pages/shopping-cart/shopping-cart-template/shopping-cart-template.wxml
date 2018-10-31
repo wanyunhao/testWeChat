@@ -16,13 +16,18 @@
 
     <block wx:for='{{goodsList}}' wx:for-item='item' wx:for-index='index' wx:key='key'>
 
-      <view class='listContentView' bindtouchstart='touchS' bindtouchmove='touchM' bindtouchend='touchE' style="{{item.left}}" data-index = '{{index}}'>
+      <view class="listContentView {{item.isSelected?'active':''}}" bindtap='selAction' bindtouchstart='touchS' bindtouchmove='touchM' bindtouchend='touchE' style="{{item.left}}" data-index = '{{index}}' >
         <view></view>
         <view class='delete-btn'>删除</view>
       </view>
 
     </block>
 
+  <view class='footView'>
+    <view class='label'>全选</view>
+    <view class='priceLabel' hidden="{{!haveSelected}}">合计：¥ {{totalPrice}} + {{totalScore}} 积分</view>
+    <view class="edit-btn {{haveSelected?'active':''}}" bindtap='buyAction'>{{isEditting?'删除':'去结算'}}</view>
+  </view>
 
 
   </view>
