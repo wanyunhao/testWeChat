@@ -8,7 +8,7 @@ Page({
     goodsList: [{
         left: '',
         price: 0,
-        isSelected:false,
+        isSelected: false,
       },
       {
 
@@ -18,11 +18,11 @@ Page({
       },
 
     ],
-    totalPrice:0,
-    totalScore:0,
+    totalPrice: 0,
+    totalScore: 0,
     isEditting: false,
     haveSelected: false,
-    allSelect: false,
+    allSelected: false,
     delBtnWidth: 120,
   },
 
@@ -43,8 +43,18 @@ Page({
 
     var editting = this.data.isEditting;
     editting = !editting;
+
+    var list = this.data.goodsList;
+    for (var i = 0; i < list.length; i++) {
+      var obj = list[i];
+      obj.isSelected = !editting;
+    }
+
     this.setData({
       isEditting: editting,
+      goodsList : this.data.goodsList,
+      allSelected:!editting,
+      haveSelected:!editting,
     })
 
   },
@@ -112,7 +122,7 @@ Page({
       var delBtnWidth = this.getEleWidth(this.data.delBtnWidth);
       //如果距离小于删除按钮的1/2，不显示删除按钮
       var left = disX > delBtnWidth / 2 ? "margin-left:-" + delBtnWidth + "px" : "margin-left:0px";
-     
+
       var obj = this.data.goodsList[parseInt(index)];
 
       if (index !== "" && index != null) {
@@ -127,20 +137,65 @@ Page({
 
   },
 
-  selAction:function (e) {
+  selAction: function(e) {
 
     var index = e.currentTarget.dataset.index;
-    var obj = this.data.goodsList[parseInt(index)];
+
+    var list = this.data.goodsList;
+    var obj = list[parseInt(index)];
 
     var isSel = obj.isSelected;
     obj.isSelected = !isSel;
-    
+
+    var haveSel = false;
+    var allSel = false;
+
+    var selCount = 0;
+
+    for(var i = 0 ;i < list.length;i ++) {
+      var obj2 = list[i];
+      if (obj2.isSelected == true){
+        haveSel = true;
+        selCount ++;
+      }
+    }
+
+    if (selCount == list.length){
+      allSel = true;
+    }
+
+
     if (index !== "" && index != null) {
       this.setData({
         goodsList: this.data.goodsList,
-        haveSelected:!isSel,
+        haveSelected: haveSel,
+        allSelected:allSel,
       })
     }
+
+  },
+
+  allSelAction:function (e) {
+
+    var allSel = this.data.allSelected;
+    var list = this.data.goodsList;
+
+
+
+      for (var i = 0;i < list.length;i ++){
+          var obj = list[i];
+          obj.isSelected = !allSel;
+      }
+
+      this.setData ({
+
+        goodsList: this.data.goodsList,
+        haveSelected: !allSel,
+        allSelected: !allSel,
+
+      })
+
+    
 
 
   }

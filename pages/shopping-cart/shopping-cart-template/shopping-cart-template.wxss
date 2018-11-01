@@ -56,7 +56,6 @@
 }
 
 .listContentView.active {
-  
   background: url(https://cdn.it120.cc/images/weappshop/gou-red.png) no-repeat 30rpx center;
   background-size: 40rpx auto;
 }
@@ -72,7 +71,6 @@
 
 .footView {
   display: flex;
-  padding-left: 30rpx;
   box-sizing: border-box;
   justify-content: space-between;
   width: 100%;
@@ -85,9 +83,17 @@
   background-color: #fff;
 }
 
-.footView .label {
+.footView .allSelLabel {
+  padding-left: 90rpx;
   line-height: 100rpx;
   font-size: 28rpx;
+  background: url(https://cdn.it120.cc/images/weappshop/gou.png) no-repeat 30rpx center;
+  background-size: 40rpx auto;
+}
+
+.footView .allSelLabel.active {
+  background: url(https://cdn.it120.cc/images/weappshop/gou-red.png) no-repeat 30rpx center;
+  background-size: 40rpx auto;
 }
 
 .footView .priceLabel {
