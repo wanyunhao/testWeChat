@@ -9,6 +9,7 @@ Page({
         left: '',
         price: 0,
         isSelected: false,
+        goods_image: '/upload/18/10/24/17/cf544649ec6be194b456c4c902b7c485.jpg',
       },
       {
 
@@ -52,9 +53,9 @@ Page({
 
     this.setData({
       isEditting: editting,
-      goodsList : this.data.goodsList,
-      allSelected:!editting,
-      haveSelected:!editting,
+      goodsList: this.data.goodsList,
+      allSelected: !editting,
+      haveSelected: !editting,
     })
 
   },
@@ -152,15 +153,15 @@ Page({
 
     var selCount = 0;
 
-    for(var i = 0 ;i < list.length;i ++) {
+    for (var i = 0; i < list.length; i++) {
       var obj2 = list[i];
-      if (obj2.isSelected == true){
+      if (obj2.isSelected == true) {
         haveSel = true;
-        selCount ++;
+        selCount++;
       }
     }
 
-    if (selCount == list.length){
+    if (selCount == list.length) {
       allSel = true;
     }
 
@@ -169,33 +170,32 @@ Page({
       this.setData({
         goodsList: this.data.goodsList,
         haveSelected: haveSel,
-        allSelected:allSel,
+        allSelected: allSel,
       })
     }
 
   },
 
-  allSelAction:function (e) {
+  allSelAction: function(e) {
 
     var allSel = this.data.allSelected;
     var list = this.data.goodsList;
 
 
 
-      for (var i = 0;i < list.length;i ++){
-          var obj = list[i];
-          obj.isSelected = !allSel;
-      }
+    for (var i = 0; i < list.length; i++) {
+      var obj = list[i];
+      obj.isSelected = !allSel;
+    }
 
-      this.setData ({
+    this.setData({
 
-        goodsList: this.data.goodsList,
-        haveSelected: !allSel,
-        allSelected: !allSel,
+      goodsList: this.data.goodsList,
+      haveSelected: !allSel,
+      allSelected: !allSel,
 
-      })
+    })
 
-    
 
 
   }

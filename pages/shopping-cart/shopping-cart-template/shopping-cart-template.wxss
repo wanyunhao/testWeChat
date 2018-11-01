@@ -49,15 +49,16 @@
   width: 870rpx;
   box-sizing: border-box;
   transition: margin-left 0.2s ease-in-out;
-  background-color: #fff;
   border-bottom: 1rpx solid #e64340;
   background: url(https://cdn.it120.cc/images/weappshop/gou.png) no-repeat 30rpx center;
   background-size: 40rpx auto;
+  background-color: #fff;
 }
 
 .listContentView.active {
   background: url(https://cdn.it120.cc/images/weappshop/gou-red.png) no-repeat 30rpx center;
   background-size: 40rpx auto;
+  background-color: #fff;
 }
 
 .delete-btn {
@@ -68,6 +69,32 @@
   font-size: 24rpx;
   color: #fff;
 }
+
+.infoContent {
+  display: flex;
+  padding-left: 90rpx;
+}
+
+.info_img {
+  height: 160rpx;
+  width: 160rpx;
+  margin: 30rpx 0rpx;
+  overflow: hidden;
+}
+
+.textContent {
+  padding-left: 30rpx;
+  font-size: 28rpx;
+  color: #3b3b3b;
+  padding-top: 30rpx;
+}
+
+.textContent .price {
+
+  color: #e64340;
+}
+
+/* footView */
 
 .footView {
   display: flex;

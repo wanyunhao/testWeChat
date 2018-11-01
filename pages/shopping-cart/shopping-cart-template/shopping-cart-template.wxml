@@ -17,7 +17,20 @@
     <block wx:for='{{goodsList}}' wx:for-item='item' wx:for-index='index' wx:key='key'>
 
       <view class="listContentView {{item.isSelected?'active':''}}" bindtap='selAction' bindtouchstart='touchS' bindtouchmove='touchM' bindtouchend='touchE' style="{{item.left}}" data-index = '{{index}}' >
-        <view></view>
+       
+       <view class='infoContent'>
+
+        <image src="{{'http://10.43.31.1/'+item.goods_image}}" class='info_img' ></image>
+
+        <view class='textContent'>
+          <view>0-12岁袜子</view>
+          <view class='price'>¥ {{item.price}}</view>
+        </view>
+       
+       </view>
+
+       
+
         <view class='delete-btn'>删除</view>
       </view>
 
